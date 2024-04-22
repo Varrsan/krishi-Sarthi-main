@@ -1,0 +1,42 @@
+<% layout('/layouts/biolerplate') -%>
+<div class="login">
+    <div class="box">
+    <div class="row mt-3 main">
+        <h1 class="col-6 offset-3" style="color: white;">Signup on Krishi Sarthi</h1>
+        <br>
+        <br>
+        <br>
+        <div class="col-6 offset-3">
+            <form action="/signup" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-label" style="color: white; font-size: larger;">Username</label>
+                    <input type="text" placeholder="Enter Username" name="username" class="form-control" id="username" required>
+                    <div class="valid-feedback">
+                        Looks good
+                      </div>   
+                </div>
+
+                <div class="mb-3">
+                    <label for="phno" class="form-label" style="color: white; font-size: larger;">Contact no</label>
+                    <input type="number" placeholder="Enter Contact number" name="phno" class="form-control" id="phno" required>
+                    <div class="valid-feedback">
+                        Looks good
+                      </div>   
+                </div>
+
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label" style="color: white; font-size: larger;">Password</label>
+                    <input type="password" placeholder="Enter Password" name="password" class="form-control" id="password" required>
+                    <div class="valid-feedback">
+                        Looks good
+                      </div>   
+                </div>
+                <button class="btn btn-dark" style="color: white; font-size: larger;">SignUp</button>
+
+            </form>
+        </div>
+    </div>  
+    </div>
+    </div>
+    

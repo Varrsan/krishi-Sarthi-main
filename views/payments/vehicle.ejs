@@ -1,0 +1,54 @@
+<% layout('/layouts/biolerplate') -%>
+<body>
+    
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form method="post" action="/" novalidate class="needs-validation" > 
+                <div class="mb-3">
+                    <br>
+                    <h2>Payment Gateway</h2>
+                    <br>    
+                    <label for="cardno" class="form-label">Card Number</label>
+                <input type="text" placeholder="Enter card number" name="title" class="form-control" required>
+              
+                  <div class="invalid-feedback">
+                    Card number Required
+                  </div>
+            </div>
+                
+               <div class="mb-3">
+                <label for="expiry" class="form-label">Expiry Date</label>
+                <input type="date" placeholder="Enter Expiry date" name="expiry" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter Expiry date
+                  </div>   
+            </div>
+                
+               <div class="mb-3">
+                <label for="cvv" class="form-label">Cvv</label>
+                <input type="text" placeholder="Enter cvv" name="cvv" class="form-control">
+               </div>
+
+               <div class="mb-3">
+                <label for="name" class="form-label">Name on Card</label>
+                <input type="text" placeholder="Enter Name on card" name="name" class="form-control" required>
+            </div>
+             
+                   <div class="mb-3 col-md-8">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="text" placeholder="Enter Amount" name="amount" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Country Required
+                      </div>   
+                </div>
+              
+               
+               
+                <br>
+                <button class="btn btn-dark add-btn">Pay</button>
+                <br><br>    
+            </form>
+        </div>
+    </div>
+</body>
+

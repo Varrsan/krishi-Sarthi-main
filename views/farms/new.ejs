@@ -1,0 +1,68 @@
+<% layout('/layouts/biolerplate') -%>
+<body>
+    
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form method="post" action="/farms" novalidate class="needs-validation" > 
+                <div class="mb-3">
+                    <br>
+                    <h2>Add a farm</h2>
+                    <br>    
+                
+            </div>
+                
+               <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" placeholder="Enter Description" name="description" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter short description
+                  </div>   
+            </div>
+                
+               <div class="mb-3">
+                <label for="image" class="form-label">Image link/Url</label>
+                <input type="text" placeholder="Enter Image link/Url" name="image" class="form-control">
+               </div>
+
+               <div class="mb-3">
+                <label for="area" class="form-label">Area(in sqft)</label>
+                <input type="text" placeholder="Enter Area" name="area" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter area of the farm
+                  </div>   
+            </div>
+             
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input  type="number" placeholder="Enter Price" name="price" class="form-control" required>
+                    <div class="invalid-feedback">
+                        price Required
+                      </div>   
+                </div>
+                   
+                   
+               
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" placeholder="Enter location" name="location" class="form-control" required>
+                    <div class="invalid-feedback">
+                        location Required
+                      </div>   
+                </div>
+
+                
+                <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" placeholder="Enter state" name="state" class="form-control" required>
+                    <div class="invalid-feedback">
+                        state Required
+                      </div>   
+                </div>
+                <br>
+                <button class="btn btn-dark add-btn">Add</button>
+                <br><br>    
+            </form>
+        </div>
+    </div>
+</body>
+

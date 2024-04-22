@@ -1,0 +1,62 @@
+<% layout('/layouts/biolerplate') -%>
+<body>
+    
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form method="post" action="/listings" novalidate class="needs-validation" > 
+                <div class="mb-3">
+                    <br>
+                    <h2>Create a New Listing</h2>
+                    <br>    
+                    <label for="title" class="form-label">Title</label>
+                <input type="text" placeholder="Enter a Catchy Tile" name="title" class="form-control" required>
+                <div class="valid-feedback">
+                    Title Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Title Required
+                  </div>
+            </div>
+                
+               <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" placeholder="Enter Description" name="description" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter short description
+                  </div>   
+            </div>
+                
+               <div class="mb-3">
+                <label for="image" class="form-label">Image link/Url</label>
+                <input type="text" placeholder="Enter Image link/Url" name="image" class="form-control">
+               </div>
+              <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input  placeholder="Enter Price" name="price" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Location Required
+                      </div>   
+                </div>
+                   
+                   <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" placeholder="Enter Country" name="country" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Country Required
+                      </div>   
+                </div>
+              </div>
+               
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" placeholder="Enter location" name="location" class="form-control" required>
+                </div>
+                <br>
+                <button class="btn btn-dark add-btn">Add</button>
+                <br><br>    
+            </form>
+        </div>
+    </div>
+</body>
+

@@ -1,0 +1,122 @@
+<% layout('/layouts/biolerplate') -%>
+
+<body>
+<form action="/crop" method="POST">
+    <label for="state">Select State:</label>
+    <select id="state" name="state">
+    <option value="">--Select State--</option>
+    <option value="Andhra Pradesh">Andhra Pradesh</option>
+    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+    <option value="Bihar">Bihar</option>
+    <option value="Chandigarh">Chandigarh</option>
+    <option value="Chattisgarh">Chattisgarh</option>
+    <option value="Goa">Goa</option>
+    <option value="Gujarat">Gujarat</option>
+    <option value="Haryana">Haryana</option>
+    <option value="Himachal Pradesh">Himachal Pradesh</option>
+    <option value="Karnataka">Karnataka</option>
+    <option value="Kerala">Kerala</option>
+    <option value="Madhya Pradesh">Madhya Pradesh</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="Manipur">Manipur</option>
+    <option value="Meghalaya">Meghalaya</option>
+    <option value="Nagaland">Nagaland</option>
+    <option value="NCT of Delhi">NCT of Delhi</option>
+    <option value="Odisha">Odisha</option>
+    <option value="Punjab">Punjab</option>
+    <option value="Pondicherry">Pondicherry</option>
+    <option value="Rajasthan">Rajasthan</option>
+    <option value="Tamil Nadu">Tamil Nadu</option>
+    <option value="Telangana">Telangana</option>
+    <option value="Tripura">Tripura</option>
+    <option value="Uttar Pradesh">Uttar Pradesh</option>
+    <option value="Uttarakhand">Uttarakhand</option>
+    <option value="West Bengal">West Bengal</option>
+    
+  </select>
+  
+  
+  <br><br>
+
+  <label for="district">Select District:</label>
+  <select id="district" name="district">
+  </select>
+  <br><br>
+
+  <label for="market">Select Market:</label>
+  <select id="market" name="market">
+  </select>
+  <br><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById("state").addEventListener("change", async function() {
+      const state = this.value;
+      try {
+        const response = await fetch(`https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd00000141a109d68de746056cb0591397fd7966&format=json&filters%5Bstate%5D=${state}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        const ans = data.records;
+        
+        // Clear previous district and market options
+        document.getElementById("district").innerHTML = "<option value=''>--Select District--</option>";
+        document.getElementById("market").innerHTML = "<option value=''>--Select Market--</option>";
+        
+        // Create a set to store unique district names
+        const uniqueDistricts = new Set();
+        
+        // Populate district dropdown with unique districts
+        ans.forEach(item => {
+          uniqueDistricts.add(item.district);
+        });
+        
+        // Add unique districts to the dropdown
+        uniqueDistricts.forEach(district => {
+          const option = document.createElement("option");
+          option.value = district;
+          option.textContent = district;
+          document.getElementById("district").appendChild(option);
+        });
+      
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+  }
+});
+
+document.getElementById("district").addEventListener("change", async function() {
+      const selectedDistrict = this.value;
+      try {
+        const response = await fetch(`https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd00000141a109d68de746056cb0591397fd7966&format=json&filters%5Bdistrict%5D=${selectedDistrict}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        const ans = data.records;
+
+       
+        document.getElementById("market").innerHTML = "<option value=''>--Select Market--</option>";
+
+        const uniqueMarkets = new Set();
+
+       
+        ans.forEach(item => {
+          uniqueMarkets.add(item.market);
+        });
+
+       
+        uniqueMarkets.forEach(market => {
+          const option = document.createElement("option");
+          option.value = market;
+          option.textContent = market;
+          document.getElementById("market").appendChild(option);
+        });
+
+      } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+      }
+});
+</script>

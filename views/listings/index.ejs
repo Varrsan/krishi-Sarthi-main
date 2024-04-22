@@ -1,0 +1,19 @@
+<% layout('/layouts/biolerplate') -%>
+
+<body>
+     <h1 style="color: Black;">All Listings</h1>
+     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+      <% for(let listing of allListings){ %>
+         <a href="/listings/<%=listing._id%>" class="listing-link">
+         <div class="card col">
+            <img src="<%=listing.image%>" class="card-img-top" alt="listingImage" style ="height: 20rem;">
+            <div class="card-img-overlay"></div>
+              <p class="card-text">
+               <b><%=listing.title%></b><br>
+               &#8377;<%= listing.price ? listing.price.toLocaleString("en-in") + "/Day" : 'Price not available' %></p>
+
+            </div> 
+            </a>
+       <% } %>
+     </div>
+</body>

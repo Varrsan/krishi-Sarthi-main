@@ -1,0 +1,71 @@
+
+<% layout('/layouts/biolerplate') -%>
+<body>
+   <div class="row mt-3">
+    <div class="col-8 offset-2">
+
+       
+
+        <form method="post" action="/farms/<%= farm._id %>?_method=PUT" novalidate class="needs-validation">
+            <h1>Edit Farm</h1>
+            <br>
+           
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" value="<%=farm.description%>" name="description" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter short description
+                  </div>   
+    
+            </div>
+            
+            <div class="mb-3">
+                <label for="image" class="form-label">Image link/Url</label>
+                <input type="text" value="<%=farm.image%>" name="image" class="form-control" >
+                <div class="invalid-feedback">
+                    Image Url Required
+                  </div>  
+               </div>
+
+               <div class="mb-3 col-md-4">
+                <label for="area" class="form-label">Area</label>
+                <input type="text" value="<%=farm.area%>" name="area" class="form-control" required>
+                <div class="invalid-feedback">
+                    Area Required
+                  </div>  
+               </div>
+            
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" value="<%=farm.price%>" name="price" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Price Required
+                      </div>  
+                   </div>
+                   
+                 
+           
+              <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" value="<%=farm.location%>" name="location" class="form-control" required>
+                <div class="invalid-feedback">
+                    Location Required
+                  </div>  
+            </div>
+
+            <div class="mb-3">
+                <label for="state" class="form-label">Location</label>
+                <input type="text" value="<%=farm.state%>" name="state" class="form-control" required>
+                <div class="invalid-feedback">
+                    State Required
+                  </div>  
+            </div>
+     
+            <button class="btn btn-dark edit-btn mt-3">Edit</button>
+            <br>
+            <br>
+    
+        </form>
+    </div>
+   </div>
+</body>

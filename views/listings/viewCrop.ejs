@@ -1,0 +1,26 @@
+<% layout('/layouts/biolerplate') -%>
+<body>
+  <div class="container mt-3"> <!-- Added container class -->
+    <div class="row"> <!-- Open row here -->
+      <% for(let ans of anss){ %>
+        <div class="col-6 mb-3"> <!-- Adjusted column size and added margin bottom -->
+          <div class="card">
+            <!-- <img src="https://5.imimg.com/data5/ANDROID/Default/2022/12/FI/SA/NC/23732567/product-jpeg.jpg" class="card-img-top" alt="show_image"> -->
+            <div class="card-body">
+              <h2 class="card-title"><%= ans.commodity %></h2>
+              <p class="card-text">
+                <h5>Variety</h5><%=ans.variety %><br>
+                <h5>Arrival Date</h5><%= ans.arrival_date %><br>
+                <h5>Min Price</h5>&#8377;<%= ans.min_price.toLocaleString("en-In") %><br>
+                <h5>Max Price</h5>&#8377;<%= ans.max_price.toLocaleString("en-In") %><br>
+                <h5>Modal Price</h5>&#8377;<%= ans.modal_price.toLocaleString("en-In") %>
+              </p>
+              <hr>
+            </div>
+          </div>
+        </div>
+      <% } %>
+        
+    </div> <!-- Close row here -->
+  </div> <!-- Close container here -->
+</body>
